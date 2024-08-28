@@ -1,0 +1,843 @@
+<div class="ps-modal ps-dialog ps-dialog-wide">
+  <div class="ps-modal__inner">
+    <div class="ps-modal__header ps-dialog-header">
+      <div id="cwin_logo" class="ps-modal__title ps-dialog-title">
+        Write Message
+      </div>
+      <a
+        class="ps-modal__close ps-dialog-close"
+        href="#"
+        onclick="pswindow.hide();return false;"
+        id="cwin_close_btn"
+        ><i class="gcis gci-times"></i
+      ></a>
+    </div>
+    <div id="cWindowContentWrap" class="ps-modal__body ps-dialog-body">
+      <div id="cWindowContent" class="ps-modal__content">
+        <form
+          class="ps-form ps-form--messages-new ps-message-form"
+          role="form"
+          onsubmit="return false;"
+        >
+          <div class="ps-message__recipients ps-js-recipient-single" style="">
+            <div class="ps-message__recipients-label">Recipient</div>
+            <div class="ps-message__recipient">
+              <div class="ps-avatar">
+                <a href="https://thegroomhaus.com/profile/lealiedawn/"
+                  ><img
+                    class="cavatar"
+                    src="https://thegroomhaus.com/wp-content/peepso/users/2236/b90cf774b7-avatar-full.jpg"
+                    alt="Leslie Funk"
+                /></a>
+              </div>
+              <div class="ps-message__recipient-info ps-comment-body">
+                <span class="ps-message__recipient-name ps-comment-user"
+                  >Leslie Funk</span
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="ps-message__recipients ps-js-recipient-multiple"
+            style="display: none"
+          >
+            <div class="ps-message__recipients-label">Recipients</div>
+            <div class="ps-message__recipients-select">
+              <select
+                name="recipients"
+                class="recipients-search"
+                data-placeholder="Select Recipients"
+                data-loading="https://thegroomhaus.com/wp-content/plugins/peepso-core/assets/images/ajax-loader.gif"
+                multiple=""
+              >
+                <option value="2236" selected="selected">Leslie Funk</option>
+              </select>
+            </div>
+          </div>
+          <div
+            class="ps-message__recipients ps-js-recipient-loading"
+            style="display: none"
+          >
+            <div class="ps-message__recipients-label">Recipient</div>
+            <div class="ps-messages-label">
+              <img
+                src="https://thegroomhaus.com/wp-content/plugins/peepso-core/assets/images/ajax-loader.gif"
+                alt=""
+              />
+            </div>
+          </div>
+          <div
+            class="ps-postbox ps-message__postbox ps-postbox-message ps-postbox--active"
+            style=""
+          >
+            <div class="ps-postbox__inner">
+              <div
+                id="ps-postbox-status"
+                class="ps-postbox__content ps-postbox-content"
+              >
+                <div class="ps-postbox__views ps-postbox-tabs">
+                  <div class="ps-postbox__view" data-tab-id="giphy">
+                    <div class="ps-giphy__wrapper">
+                      <div
+                        class="ps-giphy__preview ps-js-giphy-preview"
+                        style="display: none"
+                      >
+                        <img />
+                        <br />
+                        <a
+                          href="#"
+                          class="ps-giphy__change ps-btn ps-btn--sm ps-btn--app ps-js-giphy-change"
+                          >Change image</a
+                        >
+                      </div>
+                      <div
+                        class="ps-giphy ps-giphy--slider ps-js-giphy-container"
+                        style="display: block"
+                      >
+                        <div class="ps-giphy__search">
+                          <input
+                            type="text"
+                            class="ps-input ps-input--sm ps-giphy__input ps-js-giphy-query"
+                            placeholder="Search..."
+                            style="display: none"
+                          />
+                          <div class="ps-giphy__powered">
+                            <a href="https://giphy.com/" target="_blank"></a>
+                          </div>
+                        </div>
+
+                        <div
+                          class="ps-giphy__loading ps-loading ps-js-giphy-loading"
+                        >
+                          <i class="gcis gci-circle-notch gci-spin"></i>
+                        </div>
+
+                        <div class="ps-giphy__slider ps-js-slider">
+                          <div class="ps-giphy__slides ps-js-giphy-list"></div>
+
+                          <script
+                            type="text/template"
+                            class="ps-js-giphy-list-item"
+                          >
+                            <div class="ps-giphy__slide ps-giphy__slides-item ps-js-giphy-item">
+                                <img class="ps-giphy__slide-image" src="{{= data.preview }}" data-id="{{= data.id }}" data-url="{{= data.src }}" />
+                            </div>
+                          </script>
+
+                          <div
+                            class="ps-giphy__nav ps-giphy__nav--left ps-js-giphy-nav-left"
+                          >
+                            <i class="gcis gci-chevron-left"></i>
+                          </div>
+                          <div
+                            class="ps-giphy__nav ps-giphy__nav--right ps-js-giphy-nav-right"
+                          >
+                            <i class="gcis gci-chevron-right"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ps-postbox__view" data-tab-id="photos">
+                    <div class="ps-postbox__photos">
+                      <div class="ps-postbox__photos-inner">
+                        <div
+                          class="ps-postbox__photos-fetched ps-postbox-fetched"
+                        ></div>
+                        <div
+                          id="ps-upload-container"
+                          class="ps-postbox__photos-upload ps-postbox-input ps-inputbox"
+                        >
+                          <div
+                            class="ps-postbox__photos-info ps-postbox-photo-upload"
+                          >
+                            <div class="ps-postbox__photos-message">
+                              <i class="gcir gci-images"></i> Click here to
+                              start uploading photos
+                            </div>
+                            <div class="ps-postbox__photos-limits">
+                              Max photo dimensions: 2000 x 1500px | Max file
+                              size: 20MB
+                            </div>
+                          </div>
+                          <div
+                            class="ps-postbox__photos-preview ps-postbox-preview"
+                          >
+                            <div
+                              class="ps-postbox__photos-container ps-js-photos-container"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div id="photo-supported-format" style="display: none">
+                      Supported formats are: gif, jpg, jpeg, tiff, png, and
+                      webp.
+                    </div>
+                    <div id="photo-comment-label" style="display: none">
+                      Say something about this photo...
+                    </div>
+                  </div>
+                  <div class="ps-postbox__view" data-tab-id="videos">
+                    <div
+                      class="ps-postbox__media ps-postbox__media--video ps-postbox-videos"
+                    >
+                      <div
+                        class="ps-postbox__media-inner ps-postbox-input ps-inputbox"
+                      >
+                        <!-- Media embed -->
+                        <div class="ps-postbox__media-embed ps-js-video-embed">
+                          <input
+                            class="ps-input ps-input--sm ps-videos-url input ps-js-url"
+                            placeholder="Enter video URL here"
+                          />
+                          <div
+                            class="ps-loading ps-postbox-loading ps-js-loading"
+                          >
+                            <img
+                              src="https://thegroomhaus.com/wp-content/plugins/peepso-core/assets/images/ajax-loader.gif"
+                            />
+                          </div>
+                        </div>
+
+                        <!-- Media preview -->
+                        <div
+                          class="ps-postbox__media-preview ps-js-video-preview"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ps-postbox__view" data-tab-id="post_backgrounds">
+                    <div class="ps-post__background ps-js-post-background">
+                      <div class="ps-post__background-inner">
+                        <div>
+                          <div
+                            class="ps-post__background-text ps-js-post-background-text"
+                            contenteditable="true"
+                            data-placeholder="Say what is on your mind..."
+                          ></div>
+                        </div>
+                      </div>
+                      <div
+                        class="ps-js-activity-background-warning"
+                        style="
+                          display: none;
+                          position: absolute;
+                          bottom: 70px;
+                          left: 0;
+                          right: 0;
+                          text-align: center;
+                        "
+                      >
+                        <span
+                          style="
+                            display: inline-block;
+                            background: white;
+                            color: red;
+                            font-size: 70%;
+                            padding: 5px;
+                            margin: 5px;
+                            border-radius: 5px;
+                          "
+                          >Please shorten the text or change the post type</span
+                        >
+                      </div>
+                    </div>
+                    <div class="ps-postbox__backgrounds peepso-backgrounds">
+                      <div
+                        class="ps-postbox__backgrounds-item peepso-background-item ps-tip ps-tip--inline"
+                        aria-label="Your Way"
+                        style="
+                          background-image: url(https://thegroomhaus.com/wp-content/plugins/peepso-core/assets/images/post-backgrounds/1.png);
+                        "
+                        data-preset-id="38"
+                        data-background="https://thegroomhaus.com/wp-content/plugins/peepso-core/assets/images/post-backgrounds/1.png"
+                        data-text-color="#ffffff"
+                      ></div>
+                      <div
+                        class="ps-postbox__backgrounds-item peepso-background-item ps-tip ps-tip--inline"
+                        aria-label="Fireworks"
+                        style="
+                          background-image: url(https://thegroomhaus.com/wp-content/plugins/peepso-core/assets/images/post-backgrounds/2.png);
+                        "
+                        data-preset-id="39"
+                        data-background="https://thegroomhaus.com/wp-content/plugins/peepso-core/assets/images/post-backgrounds/2.png"
+                        data-text-color="rgba(255,255,255,0.75)"
+                      ></div>
+                      <div
+                        class="ps-postbox__backgrounds-item peepso-background-item ps-tip ps-tip--inline"
+                        aria-label="Hills"
+                        style="
+                          background-image: url(https://thegroomhaus.com/wp-content/plugins/peepso-core/assets/images/post-backgrounds/3.png);
+                        "
+                        data-preset-id="40"
+                        data-background="https://thegroomhaus.com/wp-content/plugins/peepso-core/assets/images/post-backgrounds/3.png"
+                        data-text-color="#000000"
+                      ></div>
+                      <div
+                        class="ps-postbox__backgrounds-item peepso-background-item ps-tip ps-tip--inline"
+                        aria-label="Purple shapes"
+                        style="
+                          background-image: url(https://thegroomhaus.com/wp-content/plugins/peepso-core/assets/images/post-backgrounds/4.png);
+                        "
+                        data-preset-id="41"
+                        data-background="https://thegroomhaus.com/wp-content/plugins/peepso-core/assets/images/post-backgrounds/4.png"
+                        data-text-color="rgba(255,255,255,0.75)"
+                      ></div>
+                      <div
+                        class="ps-postbox__backgrounds-item peepso-background-item ps-tip ps-tip--inline"
+                        aria-label="Confetti"
+                        style="
+                          background-image: url(https://thegroomhaus.com/wp-content/plugins/peepso-core/assets/images/post-backgrounds/5.png);
+                        "
+                        data-preset-id="42"
+                        data-background="https://thegroomhaus.com/wp-content/plugins/peepso-core/assets/images/post-backgrounds/5.png"
+                        data-text-color="#ffffff"
+                      ></div>
+                      <div
+                        class="ps-postbox__backgrounds-item peepso-background-item ps-tip ps-tip--inline"
+                        aria-label="Love"
+                        style="
+                          background-image: url(https://thegroomhaus.com/wp-content/plugins/peepso-core/assets/images/post-backgrounds/6.png);
+                        "
+                        data-preset-id="43"
+                        data-background="https://thegroomhaus.com/wp-content/plugins/peepso-core/assets/images/post-backgrounds/6.png"
+                        data-text-color="#ffffff"
+                      ></div>
+                    </div>
+                    <style>
+                      /* @todo: Matthew/Nurul, please improve and move this styling to SCSS. */
+                      .ps-post__background-text [data-highlight] {
+                        background: lightblue;
+                        border-radius: 5px;
+                        box-shadow: 0 0 0 1px lightblue;
+                        padding: 0 2px;
+                      }
+                      .ps-post__background-selector {
+                        background: white;
+                        padding: 5px;
+                        position: absolute;
+                        transform: translateX(-50%);
+                        z-index: 999;
+                      }
+                      .ps-post__background-selector [data-item] {
+                        display: block;
+                        color: inherit;
+                        text-decoration: none;
+                      }
+                      .ps-post__background-selector [data-item].active {
+                        background: lightblue;
+                      }
+                    </style>
+                  </div>
+                  <div class="ps-postbox__view" data-tab-id="polls">
+                    <div class="ps-postbox__poll ps-js-polls">
+                      <div class="ps-postbox__fetched ps-postbox-fetched"></div>
+                      <div class="ps-postbox__poll-inner">
+                        <div class="ps-postbox__poll-container">
+                          <div class="ps-postbox__poll-options ui-sortable">
+                            <div
+                              class="ps-postbox__poll-option ps-poll__option"
+                            >
+                              <a
+                                class="ps-btn ps-btn--sm ps-btn--app ps-btn--cp ps-js-handle ui-sortable-handle"
+                                title="Move"
+                                href="#"
+                                ><i class="gcis gci-arrows-alt"></i
+                              ></a>
+                              <input
+                                class="ps-input ps-input--sm"
+                                type="text"
+                                placeholder="Option 1"
+                              />
+                              <a
+                                id="ps-delete-option"
+                                class="ps-btn ps-btn--sm ps-btn--cp ps-btn--delete ps-tip ps-tip--arrow"
+                                aria-label="Delete"
+                                href="#"
+                                ><i class="gcis gci-trash"></i
+                              ></a>
+                            </div>
+                            <div
+                              class="ps-postbox__poll-option ps-poll__option"
+                            >
+                              <a
+                                class="ps-btn ps-btn--sm ps-btn--app ps-btn--cp ps-js-handle ui-sortable-handle"
+                                title="Move"
+                                href="#"
+                                ><i class="gcis gci-arrows-alt"></i
+                              ></a>
+                              <input
+                                class="ps-input ps-input--sm"
+                                type="text"
+                                placeholder="Option 2"
+                              />
+                              <a
+                                id="ps-delete-option"
+                                class="ps-btn ps-btn--sm ps-btn--cp ps-btn--delete ps-tip ps-tip--arrow"
+                                aria-label="Delete"
+                                href="#"
+                                ><i class="gcis gci-trash"></i
+                              ></a>
+                            </div>
+                          </div>
+
+                          <div class="ps-postbox__poll-actions">
+                            <button
+                              class="ps-btn ps-btn--action ps-btn--sm ps-button-action"
+                              id="ps-add-new-option"
+                            >
+                              Add new option
+                            </button>
+
+                            <div class="ps-checkbox">
+                              <input
+                                type="checkbox"
+                                id="allow-multiple"
+                                class="ps-checkbox__input ace ace-switch ace-switch-2 allow-multiple"
+                              />
+                              <label
+                                class="ps-checkbox__label lbl"
+                                for="allow-multiple"
+                                >Allow multiple options selection</label
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ps-postbox__status ps-postbox-status">
+                  <div class="ps-postbox__status-wrapper">
+                    <div class="ps-postbox__status-inner">
+                      <span class="ps-postbox__status-mirror ps-postbox-mirror"
+                        >script message</span
+                      >
+                      <span
+                        class="ps-postbox__status-addons ps-postbox-addons"
+                        style="display: none"
+                      ></span>
+                    </div>
+                    <div
+                      class="ps-postbox__input-wrapper ps-postbox-input ps-inputbox"
+                    >
+                      <div class="ps-postbox__input-tag">
+                        <div class="ps-postbox__input-beautifier">
+                          script message
+                        </div>
+                        <textarea
+                          class="ps-postbox__input ps-textarea ps-postbox-textarea ps-tagging-textarea"
+                          placeholder="Write a message..."
+                          style="
+                            overflow: hidden;
+                            overflow-wrap: break-word;
+                            resize: none;
+                            height: 45px;
+                          "
+                          maxlength="4000"
+                        ></textarea
+                        ><input
+                          type="hidden"
+                          class="ps-tagging-hidden"
+                          value="script message"
+                        />
+                        <div
+                          class="ps-tagging-dropdown"
+                          style="display: none"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ps-postbox__chars-count ps-postbox-charcount ps-js-charcount"
+                    style="display: none"
+                  >
+                    3986
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ps-postbox__footer ps-postbox-tab ps-postbox-tab-root ps-clearfix"
+                style="display: none"
+              >
+                <div class="ps-postbox__menu ps-postbox__menu--tabs">
+                  <div data-tab="status" class="ps-postbox__menu-item active">
+                    <a href="#" onclick="return false;"
+                      ><i class="gcis gci-pen"></i><span>Text</span>
+                    </a>
+                  </div>
+                  <div data-tab="photos" class="ps-postbox__menu-item">
+                    <a href="#" onclick="return false;"
+                      ><i class="gcis gci-camera"></i><span>Photo</span>
+                    </a>
+                  </div>
+                  <div data-tab="giphy" class="ps-postbox__menu-item">
+                    <a href="#" onclick="return false;"
+                      ><i class="gcis gci-giphy"></i><span>GIF</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ps-postbox__footer ps-postbox-tab selected interactions"
+                data-tab-shown="status"
+              >
+                <div class="ps-postbox__menu ps-postbox__menu--interactions">
+                  <div
+                    id="type-tab"
+                    class="ps-postbox__menu-item ps-postbox__menu-item--type ps-js-interaction-wrapper"
+                  >
+                    <div class="ps-js-interaction-wrapper ps-js-postbox-toggle">
+                      <a
+                        class="ps-postbox__menu-item-link ps-js-interaction-toggle ps-tooltip ps-tooltip--postbox"
+                        data-tooltip="Post type"
+                        onclick="return;"
+                      >
+                        <i class="ps-icon gcis gci-pen active"></i>
+                        <i class="ps-icon gcis gci-camera"></i>
+                        <i class="ps-icon gcis gci-giphy"></i>
+                      </a>
+                    </div>
+                    <div
+                      class="ps-dropdown__menu ps-postbox__types ps-js-postbox-dropdown ps-js-postbox-type"
+                    >
+                      <a
+                        role="menuitem"
+                        class="ps-postbox__type active"
+                        data-option-value="status"
+                        ><i class="ps-icon gcis gci-pen"></i
+                        ><span>Text</span></a
+                      ><a
+                        role="menuitem"
+                        class="ps-postbox__type"
+                        data-option-value="photos"
+                        ><i class="ps-icon gcis gci-camera"></i
+                        ><span>Photo</span></a
+                      ><a
+                        role="menuitem"
+                        class="ps-postbox__type"
+                        data-option-value="giphy"
+                        ><i class="ps-icon gcis gci-giphy"></i
+                        ><span>GIF</span></a
+                      >
+                    </div>
+                  </div>
+                  <div
+                    id="mood-tab"
+                    class="ps-postbox__menu-item ps-postbox__menu-item--moods ps-js-interaction-wrapper"
+                  >
+                    <div class="ps-js-interaction-wrapper ps-js-postbox-toggle">
+                      <a
+                        class="ps-postbox__menu-item-link ps-js-interaction-toggle ps-tooltip ps-tooltip--postbox"
+                        data-tooltip="Mood"
+                        onclick="return;"
+                      >
+                        <i class="ps-icon gcir gci-grin"></i>
+                      </a>
+                    </div>
+                    <div
+                      id="postbox-mood"
+                      class="ps-dropdown__menu ps-postbox__moods ps-js-postbox-mood"
+                    >
+                      <div class="ps-postbox__moods-inner">
+                        <div class="ps-postbox__moods-list">
+                          <a
+                            class="ps-postbox__moods-item ps-js-mood-item"
+                            id="postbox-mood-1"
+                            href="#"
+                            data-option-value="1"
+                            data-option-display-value="joyful"
+                            onclick="return false;"
+                          >
+                            <i class="ps-emoticon ps-emo-1"></i
+                            ><span>joyful</span>
+                          </a>
+                          <a
+                            class="ps-postbox__moods-item ps-js-mood-item"
+                            id="postbox-mood-2"
+                            href="#"
+                            data-option-value="2"
+                            data-option-display-value="meh"
+                            onclick="return false;"
+                          >
+                            <i class="ps-emoticon ps-emo-2"></i><span>meh</span>
+                          </a>
+                          <a
+                            class="ps-postbox__moods-item ps-js-mood-item"
+                            id="postbox-mood-3"
+                            href="#"
+                            data-option-value="3"
+                            data-option-display-value="love"
+                            onclick="return false;"
+                          >
+                            <i class="ps-emoticon ps-emo-3"></i
+                            ><span>love</span>
+                          </a>
+                          <a
+                            class="ps-postbox__moods-item ps-js-mood-item"
+                            id="postbox-mood-4"
+                            href="#"
+                            data-option-value="4"
+                            data-option-display-value="flattered"
+                            onclick="return false;"
+                          >
+                            <i class="ps-emoticon ps-emo-4"></i
+                            ><span>flattered</span>
+                          </a>
+                          <a
+                            class="ps-postbox__moods-item ps-js-mood-item"
+                            id="postbox-mood-5"
+                            href="#"
+                            data-option-value="5"
+                            data-option-display-value="crazy"
+                            onclick="return false;"
+                          >
+                            <i class="ps-emoticon ps-emo-5"></i
+                            ><span>crazy</span>
+                          </a>
+                          <a
+                            class="ps-postbox__moods-item ps-js-mood-item"
+                            id="postbox-mood-6"
+                            href="#"
+                            data-option-value="6"
+                            data-option-display-value="cool"
+                            onclick="return false;"
+                          >
+                            <i class="ps-emoticon ps-emo-6"></i
+                            ><span>cool</span>
+                          </a>
+                          <a
+                            class="ps-postbox__moods-item ps-js-mood-item"
+                            id="postbox-mood-7"
+                            href="#"
+                            data-option-value="7"
+                            data-option-display-value="tired"
+                            onclick="return false;"
+                          >
+                            <i class="ps-emoticon ps-emo-7"></i
+                            ><span>tired</span>
+                          </a>
+                          <a
+                            class="ps-postbox__moods-item ps-js-mood-item"
+                            id="postbox-mood-8"
+                            href="#"
+                            data-option-value="8"
+                            data-option-display-value="confused"
+                            onclick="return false;"
+                          >
+                            <i class="ps-emoticon ps-emo-8"></i
+                            ><span>confused</span>
+                          </a>
+                          <a
+                            class="ps-postbox__moods-item ps-js-mood-item"
+                            id="postbox-mood-9"
+                            href="#"
+                            data-option-value="9"
+                            data-option-display-value="speechless"
+                            onclick="return false;"
+                          >
+                            <i class="ps-emoticon ps-emo-9"></i
+                            ><span>speechless</span>
+                          </a>
+                          <a
+                            class="ps-postbox__moods-item ps-js-mood-item"
+                            id="postbox-mood-10"
+                            href="#"
+                            data-option-value="10"
+                            data-option-display-value="confident"
+                            onclick="return false;"
+                          >
+                            <i class="ps-emoticon ps-emo-10"></i
+                            ><span>confident</span>
+                          </a>
+                          <a
+                            class="ps-postbox__moods-item ps-js-mood-item"
+                            id="postbox-mood-11"
+                            href="#"
+                            data-option-value="11"
+                            data-option-display-value="relaxed"
+                            onclick="return false;"
+                          >
+                            <i class="ps-emoticon ps-emo-11"></i
+                            ><span>relaxed</span>
+                          </a>
+                          <a
+                            class="ps-postbox__moods-item ps-js-mood-item"
+                            id="postbox-mood-12"
+                            href="#"
+                            data-option-value="12"
+                            data-option-display-value="strong"
+                            onclick="return false;"
+                          >
+                            <i class="ps-emoticon ps-emo-12"></i
+                            ><span>strong</span>
+                          </a>
+                          <a
+                            class="ps-postbox__moods-item ps-js-mood-item"
+                            id="postbox-mood-13"
+                            href="#"
+                            data-option-value="13"
+                            data-option-display-value="happy"
+                            onclick="return false;"
+                          >
+                            <i class="ps-emoticon ps-emo-13"></i
+                            ><span>happy</span>
+                          </a>
+                          <a
+                            class="ps-postbox__moods-item ps-js-mood-item"
+                            id="postbox-mood-14"
+                            href="#"
+                            data-option-value="14"
+                            data-option-display-value="angry"
+                            onclick="return false;"
+                          >
+                            <i class="ps-emoticon ps-emo-14"></i
+                            ><span>angry</span>
+                          </a>
+                          <a
+                            class="ps-postbox__moods-item ps-js-mood-item"
+                            id="postbox-mood-15"
+                            href="#"
+                            data-option-value="15"
+                            data-option-display-value="scared"
+                            onclick="return false;"
+                          >
+                            <i class="ps-emoticon ps-emo-15"></i
+                            ><span>scared</span>
+                          </a>
+                          <a
+                            class="ps-postbox__moods-item ps-js-mood-item"
+                            id="postbox-mood-16"
+                            href="#"
+                            data-option-value="16"
+                            data-option-display-value="sick"
+                            onclick="return false;"
+                          >
+                            <i class="ps-emoticon ps-emo-16"></i
+                            ><span>sick</span>
+                          </a>
+                          <a
+                            class="ps-postbox__moods-item ps-js-mood-item"
+                            id="postbox-mood-17"
+                            href="#"
+                            data-option-value="17"
+                            data-option-display-value="sad"
+                            onclick="return false;"
+                          >
+                            <i class="ps-emoticon ps-emo-17"></i
+                            ><span>sad</span>
+                          </a>
+                          <a
+                            class="ps-postbox__moods-item ps-js-mood-item"
+                            id="postbox-mood-18"
+                            href="#"
+                            data-option-value="18"
+                            data-option-display-value="blessed"
+                            onclick="return false;"
+                          >
+                            <i class="ps-emoticon ps-emo-18"></i
+                            ><span>blessed</span>
+                          </a>
+                          <button
+                            id="postbox-mood-remove"
+                            class="ps-btn ps-btn--sm ps-postbox__moods-remove"
+                            title="Remove Mood"
+                          >
+                            <i class="gcis gci-times-circle"></i> Remove Mood
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div style="display: none">
+                      <input
+                        type="hidden"
+                        id="postbox-mood-input"
+                        name="postbox-mood-input"
+                        value="0"
+                      />
+                      <span id="mood-text-string"> feeling </span>
+                    </div>
+                  </div>
+                  <div
+                    id="status-post"
+                    class="ps-postbox__menu-item ps-js-interaction-wrapper active"
+                    style="display: none"
+                  >
+                    <div class="ps-js-interaction-wrapper ps-js-postbox-toggle">
+                      <a
+                        class="ps-postbox__menu-item-link ps-js-interaction-toggle ps-tooltip ps-tooltip--postbox"
+                        data-tooltip="Post a Status"
+                        onclick="return;"
+                      >
+                        <i class="ps-icon gcis gci-pen"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div
+                    id="photo-post"
+                    class="ps-postbox__menu-item ps-js-interaction-wrapper"
+                    style="display: none"
+                  >
+                    <div class="ps-js-interaction-wrapper ps-js-postbox-toggle">
+                      <a
+                        class="ps-postbox__menu-item-link ps-js-interaction-toggle ps-tooltip ps-tooltip--postbox"
+                        data-tooltip="Photos"
+                        onclick="return;"
+                      >
+                        <i class="ps-icon gcis gci-camera"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div
+                    id="post_backgrounds"
+                    class="ps-postbox__menu-item ps-js-interaction-wrapper"
+                    style="display: none"
+                  >
+                    <div class="ps-js-interaction-wrapper ps-js-postbox-toggle">
+                      <a
+                        class="ps-postbox__menu-item-link ps-js-interaction-toggle ps-tooltip ps-tooltip--postbox"
+                        data-tooltip="Post background"
+                        onclick="return;"
+                      >
+                        <i class="ps-icon gcis gci-grin-hearts"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="ps-postbox__actions ps-postbox-action">
+                  <button
+                    type="button"
+                    class="ps-btn ps-btn--sm ps-postbox__action ps-postbox__action--cancel ps-button-cancel"
+                    style=""
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    class="ps-btn ps-btn--sm ps-btn--action ps-postbox__action ps-postbox__action--post ps-button-action postbox-submit"
+                    style=""
+                  >
+                    Send
+                  </button>
+                </div>
+                <div class="ps-loading ps-edit-loading" style="display: none">
+                  <img
+                    src="https://thegroomhaus.com/wp-content/plugins/peepso-core/assets/images/ajax-loader.gif"
+                  />
+                  <div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ps-alert ps-alert--abort" style="display: none"></div>
+        </form>
+      </div>
+    </div>
+    <div
+      id="cWindowContentOuter"
+      class="ps-modal__footer ps-dialog-footer"
+    ></div>
+  </div>
+</div>
