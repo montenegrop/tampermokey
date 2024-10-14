@@ -1,4 +1,3 @@
-"use strict";
 // Sobreescribe window.location para evitar redirecciones
 Object.defineProperty(window, "location", {
   configurable: false,

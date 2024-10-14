@@ -20,3 +20,4 @@ if __name__ == "__main__":
     file_path = "html.html"  # Replace with your actual file path
     found_ids = find_ids_in_html(file_path)
     print("Found IDs:", found_ids)
+
